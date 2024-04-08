@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import SearchInput from "./components/searchInput";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const[kizlar,setKizlar]=useState([])
+  const[tumKizlar,setTumKizlar]=useState([])
+
+  function kizlariGetir(){
+    fetch("./Girls/girls.json").then(res=>res.json()).then(res=>{setKizlar(res.GirlImages); setTumKizlar(res.GirlImages)})
+  }
+
+  return <div>
+  <button className="kizlari_getir_butonu" onClick={()=>kizlariGetir()}>Tüm kizları getir</button>
+  
+  <SearchInput setKizlar={setKizlar} kizlar={kizlar} tumKizlar={tumKizlar}/>
+
+  <div className="kiz_kutulari_parent">
+    {kizlar.map((kiz,index)=>(
+      <div key={index}>
+       <div className="aciqlama">{kiz.description}</div>
+       <img src={kiz.image_url} alt={kiz.description} width="250" height="250"/>
+     </div>
+    ))}
+  </div>
+
+  </div>;
+};
 
 export default App;

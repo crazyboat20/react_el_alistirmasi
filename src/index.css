@@ -1,13 +1,37 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+  font-style: italic;
+}
+.kiz_kutulari_parent{
+  margin:10px auto;
+  max-width: 90%;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.arama_cubugu{
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  padding: 0 0 0 2px;
+}
+
+.kizlari_getir_butonu{
+  width: 300px;
+  display: block;
+  margin:5px auto;
+}
+
+img{
+  border-radius: 5px;
 }
